@@ -1,0 +1,25 @@
+How to integrate in your game
+1. Create a new layer in Unity E.G. VideoPlayer
+
+2. Create new GameOject in Menu Scene (E.G. VideoPlayer) and assign VideoPlayer component and configure it in step 5.
+
+3. Now assign VideoLoader Script from Scripts folder to the gameobject we created in step 2.
+
+4. Create a new Camera under VideoLoader GameObject in Hierarchy.
+	a. Set following setting in Camera Component
+		i. Clear Flags: Depth Only
+		ii. Culling Mask: VideoLoader only (the new layer created in set 1)
+		iii. Depth: 10
+
+5. Configure VideoPlayer Component
+	a. Video Clip: Assign the desired video clip from assets
+	b. Play on Awake : false
+
+5. Configure VideoLoader Component
+	a. Video: assign VideoPlayer component
+	b. Next Scene: name of the scene to be loaded. Should be added in build settings
+	c. If you have screen space menu, which comes over the video. Assign those GameObjects to "Hide These When Active" list.
+
+6. Call LoadSceneWithVideo() in VideoLoader component from desired event E.G. button click.
+
+Any issues or bugs contact alok@VertexSoup.com
